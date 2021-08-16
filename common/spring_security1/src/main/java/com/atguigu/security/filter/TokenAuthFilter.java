@@ -19,12 +19,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class TokenAuthenticationFilter extends BasicAuthenticationFilter {
+public class TokenAuthFilter extends BasicAuthenticationFilter {
 
     private TokenManager tokenManager;
     private RedisTemplate redisTemplate;
     //有参构造
-    public TokenAuthenticationFilter(AuthenticationManager authenticationManager,TokenManager tokenManager,RedisTemplate redisTemplate) {
+    public TokenAuthFilter(AuthenticationManager authenticationManager, TokenManager tokenManager, RedisTemplate redisTemplate) {
         super(authenticationManager);
         this.tokenManager = tokenManager;
         this.redisTemplate = redisTemplate;

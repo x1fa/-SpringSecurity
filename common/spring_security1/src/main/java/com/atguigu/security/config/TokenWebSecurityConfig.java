@@ -1,6 +1,6 @@
 package com.atguigu.security.config;
 
-import com.atguigu.security.filter.TokenAuthenticationFilter;
+import com.atguigu.security.filter.TokenAuthFilter;
 import com.atguigu.security.filter.TokenLoginFilter;
 import com.atguigu.security.security.DefaultPasswordEncoder;
 import com.atguigu.security.security.TokenLogoutHandler;
@@ -65,7 +65,7 @@ public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //添加登录过滤器
                 .addFilter(new TokenLoginFilter(tokenManager,redisTemplate,authenticationManager()))
                 //权限过滤器
-                .addFilter(new TokenAuthenticationFilter(authenticationManager(),tokenManager,redisTemplate)).httpBasic();
+                .addFilter(new TokenAuthFilter(authenticationManager(),tokenManager,redisTemplate)).httpBasic();
     }
     //配置哪些不拦截
     @Override

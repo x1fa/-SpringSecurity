@@ -20,7 +20,8 @@ public class TokenManager {
                 //根据创建token的当前时间 用new Date 加上 有效时长 是失效时间
                 .setExpiration(new Date(System.currentTimeMillis() + tokenEcpiration))
                 //设置 密钥。首先放入 签名算法  然后再把密钥放进去
-                .signWith(SignatureAlgorithm.ES512, tokenSignKey)
+                .signWith(SignatureAlgorithm.HS512, tokenSignKey)
+
                 //以GZIP方式 压缩编码
                 .compressWith(CompressionCodecs.GZIP)
                 .compact();
